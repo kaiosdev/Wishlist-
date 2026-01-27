@@ -2,6 +2,8 @@
 
 [![Update Prices](https://github.com/kaiosdev/Wishlist-/actions/workflows/scrape.yml/badge.svg)](https://github.com/kaiosdev/Wishlist-/actions/workflows/scrape.yml)
 
+https://kaiosdev.github.io/Wishlist-/
+
 Sistema automatizado de lista de desejos (wishlist) totalmente serverless, hospedado no GitHub Pages com atualização automática de preços via GitHub Actions.
 
 ## ✨ Funcionalidades
