@@ -1,88 +1,31 @@
-name: 🤖 Atualizar Preços da Wishlist
+name: 🤖 Atualizar Preços
 
 on:
-  # Permite executar manualmente no GitHub Actions
-  workflow_dispatch:
-  
-  # Executa automaticamente todo dia às 8h UTC (5h BRT)
   schedule:
-    - cron: '0 8 * * *'
-  
-  # Opcional: executa quando houver push na branch main (caso você atualize URLs manualmente)
-  push:
-    branches:
-      - main
-    paths:
-      - 'data.json'
-      - 'scraper.py'
+    - cron: '0 9 * * *' # Roda todo dia as 06:00 AM Brasil
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  scrape-and-update:
+  scrape:
     runs-on: ubuntu-latest
-    
-    permissions:
-      contents: write  # Necessário para fazer commit
-    
     steps:
-      # 1. Checkout do repositório
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          fetch-depth: 0  # Necessário para histórico completo
+          python-version: '3.10'
       
-      # 2. Configura Python
-      - name: 🐍 Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'  # Cache de dependências para velocidade
-      
-      # 3. Instala dependências
-      - name: 📦 Install dependencies
+      - name: Instalar Libs
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Rodar Scraper
+        run: python scraper.py
+
+      - name: Salvar Mudanças
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      # 4. Executa o scraper
-      - name: 🕷️ Run scraper
-        run: |
-          python scraper.py
-        env:
-          PYTHONUNBUFFERED: 1  # Para ver logs em tempo real
-      
-      # 5. Verifica se houve mudanças
-      - name: 🔍 Check for changes
-        id: check_changes
-        run: |
-          git diff --quiet data.json || echo "changed=true" >> $GITHUB_OUTPUT
-      
-      # 6. Commit e push das mudanças (se houver)
-      - name: 💾 Commit and push changes
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config --global user.name 'Wishlist Bot'
+          git config --global user.email 'bot@github.com'
           git add data.json
-          git commit -m "🤖 Atualização automática dos preços [$(date +'%Y-%m-%d %H:%M:%S')]"
-          git push
-      
-      # 7. Notifica se não houve mudanças
-      - name: ℹ️ No changes detected
-        if: steps.check_changes.outputs.changed != 'true'
-        run: |
-          echo "✅ Scraper executado com sucesso, mas não houve alterações nos dados."
-      
-      # 8. Log de resumo
-      - name: 📊 Summary
-        if: always()
-        run: |
-          echo "### 🎯 Resumo da Execução" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "- **Data/Hora:** $(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
-          echo "- **Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Mudanças detectadas:** ${{ steps.check_changes.outputs.changed == 'true' && 'Sim ✅' || 'Não ❌' }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f data.json ]; then
-            PRODUCT_COUNT=$(grep -o '"url":' data.json | wc -l)
-            echo "- **Total de produtos:** $PRODUCT_COUNT" >> $GITHUB_STEP_SUMMARY
-          fi
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Preços atualizados" && git push)
