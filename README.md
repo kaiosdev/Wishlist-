@@ -195,14 +195,3 @@ Contribuições são bem-vindas! Sinta-se livre para:
 ## 📝 Licença
 
 MIT License - Sinta-se livre para usar e modificar!
-
-## 🙏 Créditos
-
-Desenvolvido com ❤️ usando:
-- [GitHub Actions](https://github.com/features/actions)
-- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
-- [Requests](https://requests.readthedocs.io/)
-
----
-
-⭐ **Se este projeto foi útil, deixe uma estrela no GitHub!**
