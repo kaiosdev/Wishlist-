@@ -1,0 +1,12 @@
+{
+  "last_updated": "2026-01-27 00:00:00",
+  "products": [
+    {
+      "image": "https://via.placeholder.com/400x600/1a1a2e/eee?text=Produto+Exemplo",
+      "title": "Produto de Exemplo - Adicione suas URLs aqui",
+      "price": "R$ 0,00",
+      "url": "https://example.com",
+      "store": "example.com"
+    }
+  ]
+}

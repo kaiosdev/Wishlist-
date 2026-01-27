@@ -1,0 +1,43 @@
+{
+  "last_updated": "2026-01-27 00:00:00",
+  "products": [
+    {
+      "image": "",
+      "title": "",
+      "price": "",
+      "url": "https://www.amazon.com.br/Fone-Ouvido-Bluetooth-JBL-Tune/dp/B0BXXX123",
+      "store": "",
+      "notes": "Exemplo de produto Amazon - será preenchido automaticamente"
+    },
+    {
+      "image": "",
+      "title": "",
+      "price": "",
+      "url": "https://www.mercadolivre.com.br/teclado-mecanico-gamer-rgb/p/MLB123456",
+      "store": "",
+      "notes": "Exemplo de produto Mercado Livre"
+    },
+    {
+      "image": "",
+      "title": "",
+      "price": "",
+      "url": "https://www.kabum.com.br/produto/123456/mouse-gamer-logitech",
+      "store": "",
+      "notes": "Exemplo de produto Kabum"
+    },
+    {
+      "image": "",
+      "title": "",
+      "price": "",
+      "url": "https://www.magazineluiza.com.br/notebook-gamer/p/234567890/",
+      "store": "",
+      "notes": "Exemplo de produto Magazine Luiza"
+    }
+  ],
+  "_instructions": {
+    "how_to_use": "Adicione suas URLs reais de produtos acima",
+    "required_fields": "Apenas o campo 'url' é obrigatório",
+    "auto_filled": "Os campos image, title, price e store serão preenchidos automaticamente pelo scraper",
+    "notes_field": "O campo 'notes' é opcional e será ignorado pelo scraper"
+  }
+}
