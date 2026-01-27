@@ -1,6 +1,6 @@
 # 🎁 Wishlist Serverless com Git Scraping
 
-[![Update Prices](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/actions/workflows/scrape.yml/badge.svg)](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/actions/workflows/scrape.yml)
+[![Update Prices](https://github.com/kaiosdev/Wishlist-/actions/workflows/scrape.yml/badge.svg)](https://github.com/kaiosdev/Wishlist-/actions/workflows/scrape.yml)
 
 Sistema automatizado de lista de desejos (wishlist) totalmente serverless, hospedado no GitHub Pages com atualização automática de preços via GitHub Actions.
 
@@ -16,16 +16,6 @@ Sistema automatizado de lista de desejos (wishlist) totalmente serverless, hospe
 - ♿ **Acessível**: Suporte a leitores de tela e navegação por teclado
 
 ## 🚀 Como Usar
-
-### 1. Criar o Repositório
-
-1. Crie um novo repositório no GitHub
-2. Clone este código para seu repositório:
-
-```bash
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-cd SEU_REPOSITORIO
-```
 
 ### 2. Estrutura de Arquivos
 
