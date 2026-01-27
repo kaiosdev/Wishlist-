@@ -1,0 +1,41 @@
+name: ➕ Adicionar Link via Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  add-url:
+    if: startsWith(github.event.issue.title, 'ADD_URL')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Adicionar URL ao arquivo
+        run: |
+          echo "${{ github.event.issue.body }}" >> urls.txt
+          # Remove espaços em branco extras das linhas
+          sed -i '/^[[:space:]]*$/d' urls.txt
+
+      - name: Commit e Push
+        run: |
+          git config --global user.name 'Wishlist Bot'
+          git config --global user.email 'bot@github.com'
+          git add urls.txt
+          git commit -m "➕ Novo link adicionado"
+          git push
+
+      - name: Fechar Issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue close ${{ github.event.issue.number }} --comment "✅ Link salvo! A atualização de preços rodará em breve."
+
+      - name: Disparar Atualização
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: 🤖 Atualizar Preços

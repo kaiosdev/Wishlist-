@@ -2,8 +2,6 @@
 
 [![Update Prices](https://github.com/kaiosdev/Wishlist-/actions/workflows/scrape.yml/badge.svg)](https://github.com/kaiosdev/Wishlist-/actions/workflows/scrape.yml)
 
-https://kaiosdev.github.io/Wishlist-/
-
 Sistema automatizado de lista de desejos (wishlist) totalmente serverless, hospedado no GitHub Pages com atualização automática de preços via GitHub Actions.
 
 ## ✨ Funcionalidades
@@ -34,14 +32,6 @@ seu-repositorio/
 ├── requirements.txt            # Dependências Python
 └── README.md                   # Este arquivo
 ```
-
-### 3. Configurar GitHub Pages
-
-1. Vá em **Settings** → **Pages**
-2. Em **Source**, selecione **Deploy from a branch**
-3. Escolha a branch `main` e a pasta `/ (root)`
-4. Clique em **Save**
-5. Aguarde alguns minutos e acesse: `https://SEU_USUARIO.github.io/SEU_REPOSITORIO/`
 
 ### 4. Adicionar Produtos
 
@@ -197,3 +187,14 @@ Contribuições são bem-vindas! Sinta-se livre para:
 ## 📝 Licença
 
 MIT License - Sinta-se livre para usar e modificar!
+
+## 🙏 Créditos
+
+Desenvolvido com ❤️ usando:
+- [GitHub Actions](https://github.com/features/actions)
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
+- [Requests](https://requests.readthedocs.io/)
+
+---
+
+⭐ **Se este projeto foi útil, deixe uma estrela no GitHub!**

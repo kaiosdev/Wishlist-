@@ -1,0 +1,31 @@
+name: 🤖 Atualizar Preços
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # Roda todo dia as 06:00 AM Brasil
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Instalar Libs
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Rodar Scraper
+        run: python scraper.py
+
+      - name: Salvar Mudanças
+        run: |
+          git config --global user.name 'Wishlist Bot'
+          git config --global user.email 'bot@github.com'
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Preços atualizados" && git push)

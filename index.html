@@ -3,89 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Minha lista de desejos automatizada com scraping de produtos">
-    <meta name="author" content="Wishlist Serverless">
-    <title>🎁 Minha Lista de Desejos</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
-    
-    <!-- Stylesheet -->
+    <title>Minha Wishlist</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-left">
-                    <h1 class="logo">
-                        <span class="logo-icon">🎁</span>
-                        Minha Wishlist
-                    </h1>
-                    <p class="subtitle">Atualizado automaticamente via GitHub Actions</p>
+    <header>
+        <div class="header-content">
+            <div class="title-area">
+                <h1>🎁 Minha Wishlist</h1>
+                <div class="add-product-box">
+                    <input type="text" id="new-url" placeholder="Cole o link do produto aqui...">
+                    <button onclick="addProduct()" title="Adicionar à lista"><i class="fas fa-plus"></i></button>
                 </div>
-                
-                <div class="header-actions">
-                    <!-- Toggle View Button -->
-                    <button class="view-toggle" id="viewToggle" aria-label="Alternar visualização">
-                        <span class="toggle-icon grid-icon">⊞</span>
-                        <span class="toggle-icon list-icon" style="display: none;">☰</span>
-                        <span class="toggle-text">Modo Lista</span>
-                    </button>
-                </div>
+            </div>
+
+            <div class="controls">
+                <span id="last-updated">Carregando...</span>
+                <button id="view-toggle" onclick="toggleView()">
+                    <i class="fas fa-th-large"></i>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <!-- Stats Bar -->
-            <div class="stats-bar">
-                <div class="stat">
-                    <span class="stat-value" id="productCount">0</span>
-                    <span class="stat-label">Produtos</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value" id="lastUpdate">Carregando...</span>
-                    <span class="stat-label">Última atualização</span>
-                </div>
-            </div>
+    <main id="products-container" class="grid-view">
+        </main>
 
-            <!-- Products Grid/List Container -->
-            <section class="products-container grid-view" id="productsContainer" role="list" aria-label="Lista de produtos">
-                <!-- Loading State -->
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                    <p>Carregando produtos...</p>
-                </div>
-
-                <!-- Products will be injected here by JavaScript -->
-            </section>
-
-            <!-- Empty State -->
-            <div class="empty-state" id="emptyState" style="display: none;">
-                <div class="empty-icon">📦</div>
-                <h2>Nenhum produto encontrado</h2>
-                <p>Adicione URLs de produtos no arquivo <code>data.json</code> e rode o GitHub Action!</p>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>
-                ⚡ Powered by 
-                <a href="https://github.com/features/actions" target="_blank" rel="noopener">GitHub Actions</a>
-                | 
-                <a href="https://github.com" target="_blank" rel="noopener">View Source</a>
-            </p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
