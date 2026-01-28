@@ -1,12 +1,19 @@
 {
-  "last_updated": "27/01/2026 23:23",
+  "last_updated": "28/01/2026 09:24",
   "products": [
     {
-      "title": "Amazon.com.br...",
+      "title": "Mercado Livre...",
       "image": "https://placehold.co/400?text=Sem+Imagem",
       "price": "Ver no site",
       "url": "https://www.mercadolivre.com.br/console-playstation5-slim-disk-pacote-astro-bot-e-gran-turismo-7-branco/p/MLB55766882",
-      "store": "Amazon"
+      "store": "Mercado Livre"
+    },
+    {
+      "title": "Mercado Livre...",
+      "image": "https://placehold.co/400?text=Sem+Imagem",
+      "price": "Ver no site",
+      "url": "https://www.mercadolivre.com.br/console-playstation5-slim-disk-pacote-astro-bot-e-gran-turismo-7-branco/p/MLB55766882",
+      "store": "Mercado Livre"
     }
   ]
 }
